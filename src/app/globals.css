@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* =========================================================================
+     THEME 1: IVORY LUXE (Default — Warm Alabaster, Obsidian, Cashmere & Champagne Gold)
+     ========================================================================= */
+  :root,
+  [data-theme="ivory-luxe"] {
+    --background: #FAF8F5;
+    --foreground: #141210;
+    --card: #FFFFFF;
+    --card-foreground: #141210;
+    --card-border: #ECE4D8;
+    --muted: #F3ECE2;
+    --muted-foreground: #6B6258;
+    --primary: #141210;
+    --primary-foreground: #FAF8F5;
+    --primary-hover: #2E2925;
+    --accent: #B8976C;
+    --accent-foreground: #FFFFFF;
+    --accent-muted: #F2E8DB;
+    --border: #E8DFD3;
+    --glass: rgba(250, 248, 245, 0.82);
+    --glass-border: rgba(232, 223, 211, 0.7);
+    --glass-highlight: rgba(255, 255, 255, 0.6);
+    --shadow-color: rgba(20, 18, 16, 0.06);
+    --overlay: rgba(20, 18, 16, 0.4);
+  }
+
+  .dark,
+  [data-theme="ivory-luxe"].dark {
+    --background: #12100E;
+    --foreground: #F6F3EE;
+    --card: #1A1816;
+    --card-foreground: #F6F3EE;
+    --card-border: #2B2622;
+    --muted: #1E1B18;
+    --muted-foreground: #A49B91;
+    --primary: #F6F3EE;
+    --primary-foreground: #12100E;
+    --primary-hover: #E3DDD4;
+    --accent: #D4B995;
+    --accent-foreground: #12100E;
+    --accent-muted: #2A231C;
+    --border: #2A2521;
+    --glass: rgba(18, 16, 14, 0.84);
+    --glass-border: rgba(45, 39, 34, 0.75);
+    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.45);
+    --overlay: rgba(0, 0, 0, 0.75);
+  }
+
+  /* =========================================================================
+     THEME 2: ROSE ATELIER (Warm Powder Cream, Prune Charcoal, Rose Quartz & Muted Rose)
+     ========================================================================= */
+  [data-theme="rose-atelier"] {
+    --background: #FAF5F5;
+    --foreground: #241619;
+    --card: #FFFFFF;
+    --card-foreground: #241619;
+    --card-border: #ECDAD8;
+    --muted: #F6EBEA;
+    --muted-foreground: #786467;
+    --primary: #241619;
+    --primary-foreground: #FAF5F5;
+    --primary-hover: #3C272C;
+    --accent: #C88D88;
+    --accent-foreground: #FFFFFF;
+    --accent-muted: #F7E4E2;
+    --border: #E8D4D2;
+    --glass: rgba(250, 245, 245, 0.82);
+    --glass-border: rgba(236, 218, 216, 0.7);
+    --glass-highlight: rgba(255, 255, 255, 0.65);
+    --shadow-color: rgba(36, 22, 25, 0.06);
+    --overlay: rgba(36, 22, 25, 0.4);
+  }
+
+  [data-theme="rose-atelier"].dark {
+    --background: #140E10;
+    --foreground: #F8F2F3;
+    --card: #1D1518;
+    --card-foreground: #F8F2F3;
+    --card-border: #332328;
+    --muted: #22181C;
+    --muted-foreground: #A69498;
+    --primary: #F8F2F3;
+    --primary-foreground: #140E10;
+    --primary-hover: #E5D6DA;
+    --accent: #E5A9A4;
+    --accent-foreground: #140E10;
+    --accent-muted: #2E1B21;
+    --border: #332328;
+    --glass: rgba(20, 14, 16, 0.84);
+    --glass-border: rgba(51, 35, 40, 0.75);
+    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.45);
+    --overlay: rgba(0, 0, 0, 0.75);
+  }
+
+  /* =========================================================================
+     THEME 3: MOCHA NOIR (Travertine Sand, Rich Dark Espresso, Mocha & Satin Gold)
+     ========================================================================= */
+  [data-theme="mocha-noir"] {
+    --background: #F8F4EE;
+    --foreground: #221A15;
+    --card: #FFFFFF;
+    --card-foreground: #221A15;
+    --card-border: #E8DFD3;
+    --muted: #F2E9DC;
+    --muted-foreground: #74665D;
+    --primary: #221A15;
+    --primary-foreground: #F8F4EE;
+    --primary-hover: #382D25;
+    --accent: #C4A47C;
+    --accent-foreground: #FFFFFF;
+    --accent-muted: #F0E2CE;
+    --border: #E2D7C8;
+    --glass: rgba(248, 244, 238, 0.82);
+    --glass-border: rgba(232, 223, 211, 0.7);
+    --glass-highlight: rgba(255, 255, 255, 0.65);
+    --shadow-color: rgba(34, 26, 21, 0.06);
+    --overlay: rgba(34, 26, 21, 0.4);
+  }
+
+  [data-theme="mocha-noir"].dark {
+    --background: #110E0C;
+    --foreground: #F6F0EB;
+    --card: #1A1512;
+    --card-foreground: #F6F0EB;
+    --card-border: #2D241E;
+    --muted: #1F1915;
+    --muted-foreground: #A69990;
+    --primary: #F6F0EB;
+    --primary-foreground: #110E0C;
+    --primary-hover: #E4DAD3;
+    --accent: #DCBF97;
+    --accent-foreground: #110E0C;
+    --accent-muted: #291F18;
+    --border: #2D241E;
+    --glass: rgba(17, 14, 12, 0.84);
+    --glass-border: rgba(45, 36, 30, 0.75);
+    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.45);
+    --overlay: rgba(0, 0, 0, 0.75);
+  }
+
+  /* =========================================================================
+     THEME 4: SAGE MODERN (Porcelain Celadon, Forest Slate, Limestone & Muted Laurel)
+     ========================================================================= */
+  [data-theme="sage-modern"] {
+    --background: #F6F8F5;
+    --foreground: #162018;
+    --card: #FFFFFF;
+    --card-foreground: #162018;
+    --card-border: #DFE5DD;
+    --muted: #ECF1EB;
+    --muted-foreground: #617364;
+    --primary: #162018;
+    --primary-foreground: #F6F8F5;
+    --primary-hover: #29382B;
+    --accent: #728C72;
+    --accent-foreground: #FFFFFF;
+    --accent-muted: #DFEADE;
+    --border: #D7E0D5;
+    --glass: rgba(246, 248, 245, 0.82);
+    --glass-border: rgba(223, 229, 221, 0.7);
+    --glass-highlight: rgba(255, 255, 255, 0.65);
+    --shadow-color: rgba(22, 32, 24, 0.06);
+    --overlay: rgba(22, 32, 24, 0.4);
+  }
+
+  [data-theme="sage-modern"].dark {
+    --background: #0E1410;
+    --foreground: #EFF4F0;
+    --card: #151E17;
+    --card-foreground: #EFF4F0;
+    --card-border: #253328;
+    --muted: #19241C;
+    --muted-foreground: #94A698;
+    --primary: #EFF4F0;
+    --primary-foreground: #0E1410;
+    --primary-hover: #DCE5DE;
+    --accent: #9EB9A0;
+    --accent-foreground: #0E1410;
+    --accent-muted: #1F2E23;
+    --border: #253328;
+    --glass: rgba(14, 20, 16, 0.84);
+    --glass-border: rgba(37, 51, 40, 0.75);
+    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.45);
+    --overlay: rgba(0, 0, 0, 0.75);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    letter-spacing: -0.015em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* =========================================================================
+   SOPHISTICATED LAYERED GLASSMORPHISM UTILITIES
+   ========================================================================= */
+.glass-nav {
+  background-color: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px -2px var(--shadow-color);
+}
+
+.glass-pill {
+  background-color: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 10px 0 var(--shadow-color);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, var(--glass), var(--glass));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px -4px var(--shadow-color);
+  position: relative;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+  pointer-events: none;
+}
+
+.glass-panel {
+  background-color: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 50px -10px var(--shadow-color);
+}
+
+/* =========================================================================
+   EDITORIAL DISPLAY UTILITIES
+   ========================================================================= */
+.text-display-giant {
+  font-size: clamp(3rem, 10vw, 8.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.text-micro-caps {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+}
+
+/* Glow & Ambient Radiance */
+.glow-ambient {
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.12;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
