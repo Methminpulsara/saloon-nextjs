@@ -12,8 +12,8 @@ import { SalonConfig } from "@/types";
  */
 export const salonConfig: SalonConfig = {
   brand: {
-    name: "Lumière Salon",
-    shortName: "Lumière",
+    name: "Salon Dreams",
+    shortName: "Salon Dreams",
     tagline: "Modern beauty, thoughtfully created.",
     eyebrow: "HAIR • BEAUTY • BRIDAL SANCTUARY",
     description:
@@ -27,22 +27,22 @@ export const salonConfig: SalonConfig = {
   },
 
   contact: {
-    phone: "+1 (555) 234-5678",
-    displayPhone: "+1 (555) 234-5678",
-    whatsapp: "15552345678", // Clean number for wa.me API (digits only with country code)
-    displayWhatsapp: "+1 (555) 234-5678",
+    phone: "+94 761062493",
+    displayPhone: "+94 761062493",
+    whatsapp: "94 761062493", // Clean number for wa.me API (digits only with country code)
+    displayWhatsapp: "+94 761062493",
     email: "concierge@lumieresalon.com",
   },
 
   location: {
     street: "482 Boutique Boulevard",
     suite: "Suite 300",
-    city: "San Francisco",
+    city: "Horana",
     state: "CA",
-    postalCode: "94108",
-    country: "United States",
+    postalCode: "",
+    country: "Sri Lanka",
     neighborhood: "Union Square",
-    full: "482 Boutique Boulevard, Suite 300, San Francisco, CA 94108",
+    full: "",
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0192882207945!2d-122.40822702336336!3d37.78953181131109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858089452b478d%3A0x6a2c2627e163b27b!2sUnion%20Square%2C%20San%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
     googleMapsDirectionsUrl:
