@@ -1,22 +1,24 @@
-import { businessData } from "@/data/business";
+import { salonConfig } from "@/data/salon";
 
 export function LocalBusinessJsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
-    name: businessData.name,
-    description: businessData.description,
-    telephone: businessData.phone,
-    email: businessData.email,
-    url: "https://lumieresalon.demo",
-    image: "https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=1200&auto=format&fit=crop",
+    name: salonConfig.brand.name,
+    description: salonConfig.brand.description,
+    telephone: salonConfig.contact.phone,
+    email: salonConfig.contact.email,
+    url: salonConfig.seo.canonicalUrl,
+    image: salonConfig.seo.ogImage,
     address: {
       "@type": "PostalAddress",
-      streetAddress: businessData.address.street + (businessData.address.suite ? `, ${businessData.address.suite}` : ""),
-      addressLocality: businessData.address.city,
-      addressRegion: businessData.address.state,
-      postalCode: businessData.address.postalCode,
-      addressCountry: businessData.address.country,
+      streetAddress:
+        salonConfig.location.street +
+        (salonConfig.location.suite ? `, ${salonConfig.location.suite}` : ""),
+      addressLocality: salonConfig.location.city,
+      addressRegion: salonConfig.location.state,
+      postalCode: salonConfig.location.postalCode,
+      addressCountry: salonConfig.location.country,
     },
     openingHoursSpecification: [
       {

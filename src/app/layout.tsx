@@ -8,7 +8,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { LocalBusinessJsonLd } from "@/components/seo/JsonLd";
-import { businessData } from "@/data/business";
+import { CustomCursor } from "@/components/common/CustomCursor";
+import { BrandPreloader } from "@/components/common/BrandPreloader";
+import { salonConfig } from "@/data/salon";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -25,46 +27,40 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lumieresalon.demo"),
+  metadataBase: new URL(salonConfig.seo.canonicalUrl),
   title: {
-    default: `${businessData.name} | Hair & Beauty Sanctuary`,
-    template: `%s | ${businessData.name}`,
+    default: salonConfig.seo.title,
+    template: salonConfig.seo.titleTemplate,
   },
-  description: businessData.description,
+  description: salonConfig.seo.description,
   keywords: [
-    "Lumière Salon",
-    "luxury hair salon",
-    "French balayage",
-    "precision haircut",
-    "bridal hair and makeup",
-    "hydro-glow facial",
-    "San Francisco hair salon",
-    "editorial hair styling",
-    "couture beauty",
+    salonConfig.brand.name,
+    salonConfig.brand.shortName,
+    ...salonConfig.seo.keywords,
   ],
-  authors: [{ name: businessData.name }],
-  creator: businessData.name,
+  authors: [{ name: salonConfig.brand.name }],
+  creator: salonConfig.brand.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lumieresalon.demo",
-    title: `${businessData.name} — ${businessData.tagline}`,
-    description: businessData.description,
-    siteName: businessData.name,
+    url: salonConfig.seo.canonicalUrl,
+    title: `${salonConfig.brand.name} — ${salonConfig.brand.tagline}`,
+    description: salonConfig.brand.description,
+    siteName: salonConfig.brand.name,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=1200&auto=format&fit=crop",
+        url: salonConfig.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: `${businessData.name} - Modern Beauty Sanctuary`,
+        alt: `${salonConfig.brand.name} - Modern Beauty Sanctuary`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${businessData.name} — ${businessData.tagline}`,
-    description: businessData.description,
-    images: ["https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=1200&auto=format&fit=crop"],
+    title: `${salonConfig.brand.name} — ${salonConfig.brand.tagline}`,
+    description: salonConfig.brand.description,
+    images: [salonConfig.seo.ogImage],
   },
   robots: {
     index: true,
@@ -77,11 +73,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Anti-flash client script
+  // Anti-flash client script reading salonConfig.theme.defaultTheme
   const themeInitScript = `
     (function() {
       try {
-        var theme = localStorage.getItem('lumiere_theme') || 'ivory-luxe';
+        var theme = localStorage.getItem('lumiere_theme') || '${salonConfig.theme.defaultTheme}';
         var appearance = localStorage.getItem('lumiere_appearance') || 'system';
         document.documentElement.setAttribute('data-theme', theme);
         var isDark = appearance === 'dark' || (appearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -95,12 +91,18 @@ export default function RootLayout({
   `;
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${cormorant.variable} ${plusJakarta.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${cormorant.variable} ${plusJakarta.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <LocalBusinessJsonLd />
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground selection:bg-accent/20 selection:text-foreground">
+        <BrandPreloader />
+        <CustomCursor />
         <ThemeProvider>
           <SmoothScroll>
             <AnnouncementBar />

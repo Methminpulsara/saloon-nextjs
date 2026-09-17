@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Instagram, Facebook, Pin, ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
-import { businessData } from "@/data/business";
-import { mainNavItems, footerServiceLinks, legalLinks } from "@/data/navigation";
+import { salonConfig, getPhoneHref, getEmailHref } from "@/data/salon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,6 +19,12 @@ export function Footer() {
     }
   };
 
+  const socialItems = [
+    { platform: "Instagram", url: salonConfig.social.instagram },
+    { platform: "Pinterest", url: salonConfig.social.pinterest || "#" },
+    { platform: "Facebook", url: salonConfig.social.facebook },
+  ].filter((s) => s.url && s.url !== "#");
+
   return (
     <footer className="bg-card text-foreground border-t border-border">
       {/* Upper Editorial Newsletter & Invitation */}
@@ -28,13 +33,13 @@ export function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2 block">
-                {businessData.businessType}
+                {salonConfig.brand.eyebrow}
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-foreground">
-                {businessData.tagline}
+                {salonConfig.brand.tagline}
               </h3>
               <p className="mt-2 text-sm text-muted-foreground max-w-xl font-light">
-                Discover bespoke hair styling, luminous balayage, restorative skin therapies, and bridal artistry in our sanctuary.
+                {salonConfig.brand.description}
               </p>
             </div>
             <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3">
@@ -61,21 +66,21 @@ export function Footer() {
           {/* Brand & Mission (Col 1 & 2) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-block">
-              <span className="font-serif text-2xl sm:text-3xl tracking-[0.2em] text-foreground font-medium">
-                {businessData.name}
+              <span className="font-serif text-2xl sm:text-3xl tracking-[0.2em] text-foreground font-medium uppercase">
+                {salonConfig.brand.name}
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm font-light">
-              {businessData.shortAbout}
+              {salonConfig.brand.shortAbout}
             </p>
             <div className="pt-2 flex items-center space-x-3">
-              {businessData.socialLinks.map((social) => (
+              {socialItems.map((social) => (
                 <a
                   key={social.platform}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Follow Lumière Salon on ${social.platform}`}
+                  aria-label={`Follow ${salonConfig.brand.name} on ${social.platform}`}
                   className="w-9 h-9 flex items-center justify-center rounded-none border border-border text-muted-foreground hover:border-accent hover:text-accent transition-colors"
                 >
                   {getSocialIcon(social.platform)}
@@ -90,7 +95,7 @@ export function Footer() {
               Explore
             </h4>
             <ul className="space-y-2.5 text-sm font-light text-muted-foreground">
-              {mainNavItems.map((item) => (
+              {salonConfig.navigation.mainNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -109,7 +114,7 @@ export function Footer() {
               Signature Services
             </h4>
             <ul className="space-y-2.5 text-sm font-light text-muted-foreground">
-              {footerServiceLinks.map((service) => (
+              {salonConfig.navigation.footerServices.map((service) => (
                 <li key={service.label}>
                   <Link
                     href={service.href}
@@ -130,24 +135,24 @@ export function Footer() {
             <address className="not-italic space-y-3 text-sm font-light text-muted-foreground">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                <span>{businessData.address.full}</span>
+                <span>{salonConfig.location.full}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-accent shrink-0" />
                 <a
-                  href={`tel:${businessData.phone}`}
+                  href={getPhoneHref()}
                   className="hover:text-foreground transition-colors"
                 >
-                  {businessData.displayPhone}
+                  {salonConfig.contact.displayPhone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-accent shrink-0" />
                 <a
-                  href={`mailto:${businessData.email}`}
+                  href={getEmailHref()}
                   className="hover:text-foreground transition-colors"
                 >
-                  {businessData.email}
+                  {salonConfig.contact.email}
                 </a>
               </div>
             </address>
@@ -157,8 +162,7 @@ export function Footer() {
                 Hours of Quietude
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed font-light">
-                Tue – Fri: 9am – 7pm <br />
-                Sat: 9am – 6pm • Sun: 10am – 4pm
+                {salonConfig.hours.summary}
               </p>
             </div>
           </div>
@@ -167,10 +171,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-light">
           <div>
-            © {currentYear} {businessData.name}. All rights reserved. Master Template for Luxury Salons.
+            © {currentYear} {salonConfig.brand.name}. All rights reserved. Master Template for Luxury Salons.
           </div>
           <div className="flex flex-wrap items-center gap-6">
-            {legalLinks.map((link) => (
+            {salonConfig.navigation.legal.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}

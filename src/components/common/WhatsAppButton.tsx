@@ -1,6 +1,6 @@
 import React from "react";
 import { MessageCircle } from "lucide-react";
-import { getWhatsAppUrl, businessData } from "@/data/business";
+import { salonConfig, getWhatsAppHref } from "@/data/salon";
 import { cn } from "@/lib/utils";
 
 interface WhatsAppButtonProps {
@@ -11,12 +11,13 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({
-  message = "Hello Lumière Salon, I would like to inquire about booking an appointment.",
+  message,
   className,
   variant = "inline",
   label = "WhatsApp Us",
 }: WhatsAppButtonProps) {
-  const url = getWhatsAppUrl(businessData.whatsapp, message);
+  const defaultMsg = `Hello ${salonConfig.brand.name}, I would like to inquire about booking an appointment.`;
+  const url = getWhatsAppHref(message || defaultMsg);
 
   if (variant === "floating") {
     return (
@@ -25,7 +26,7 @@ export function WhatsAppButton({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Chat with ${businessData.name} on WhatsApp`}
+          aria-label={`Chat with ${salonConfig.brand.name} on WhatsApp`}
           className={cn(
             "fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366]",
             className
@@ -46,9 +47,9 @@ export function WhatsAppButton({
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Inquire on WhatsApp about: ${message}`}
+        aria-label={`Inquire on WhatsApp with ${salonConfig.brand.name}`}
         className={cn(
-          "inline-flex items-center justify-center gap-2 border border-[#25D366] text-charcoal-400 hover:bg-[#25D366] hover:text-white px-5 py-3 text-xs uppercase tracking-widest font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]",
+          "inline-flex items-center justify-center gap-2 border border-[#25D366] text-foreground hover:bg-[#25D366] hover:text-white px-5 py-3 text-xs uppercase tracking-widest font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]",
           className
         )}
       >
@@ -63,7 +64,7 @@ export function WhatsAppButton({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Message ${businessData.name} on WhatsApp`}
+      aria-label={`Message ${salonConfig.brand.name} on WhatsApp`}
       className={cn(
         "inline-flex items-center justify-center gap-2.5 bg-[#25D366] text-white hover:bg-[#20ba59] active:bg-[#1da850] px-6 py-3.5 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all duration-300 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366]",
         className
