@@ -11,9 +11,9 @@ import { TeamSection } from "@/components/about/TeamSection";
 import { FadeUp, FadeIn, StaggerContainer, StaggerItem } from "@/components/common/MotionWrapper";
 
 export const metadata: Metadata = {
-  title: "About Our Sanctuary | Lumière Salon",
+  title: "About Our Sanctuary | Salon",
   description:
-    "Discover the philosophy, master artisans, and tranquil environment behind Lumière Salon in San Francisco.",
+    "Discover the philosophy, master artisans, and tranquil environment behind  Salon in Sri lanaka.",
 };
 
 export default function AboutPage() {

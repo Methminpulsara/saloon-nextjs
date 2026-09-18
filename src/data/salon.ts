@@ -12,8 +12,8 @@ import { SalonConfig } from "@/types";
  */
 export const salonConfig: SalonConfig = {
   brand: {
-    name: "Salon Dreams",
-    shortName: "Salon Dreams",
+    name: "Rose and Diamonds",
+    shortName: "R & D",
     tagline: "Modern beauty, thoughtfully created.",
     eyebrow: "HAIR • BEAUTY • BRIDAL SANCTUARY",
     description:
@@ -27,10 +27,10 @@ export const salonConfig: SalonConfig = {
   },
 
   contact: {
-    phone: "+94 761062493",
-    displayPhone: "+94 761062493",
-    whatsapp: "94 761062493", // Clean number for wa.me API (digits only with country code)
-    displayWhatsapp: "+94 761062493",
+    phone: "+94 743604270",
+    displayPhone: "+94 743604270",
+    whatsapp: "94 743604270", // Clean number for wa.me API (digits only with country code)
+    displayWhatsapp: "+94 743604270",
     email: "concierge@lumieresalon.com",
   },
 
@@ -669,7 +669,7 @@ export const salonConfig: SalonConfig = {
   },
 
   seo: {
-    title: "Lumière Salon | Hair & Beauty Sanctuary",
+    title: "Rose and Diamonds | Hair & Beauty Sanctuary",
     titleTemplate: "%s | Lumière Salon",
     description:
       "Thoughtful styling, modern beauty treatments and personalized care in a tranquil space designed around your natural beauty.",
